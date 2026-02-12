@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Basics - Bootstrap Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    .topic-btn {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 15px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+    .topic-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+<div class="container py-5">
+  <h2 class="text-center mb-4 text-success">
+    🟢 Step 1: Python Basics
+  </h2>
+
+  <p class="text-center mb-5">
+    इस section में हम Python की basic concepts सीखेंगे जैसे:
+    Installation, Variables, Data Types, Input/Output और Calculator Program.
+  </p>
+
+  <div class="row g-3">
+
+    <!-- Python Installation -->
+    <div class="col-md-6">
+      <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#installModal">
+        Python Installation
+      </button>
+    </div>
+
+    <!-- Variables -->
+    <div class="col-md-6">
+      <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#variableModal">
+        Variables
+      </button>
+    </div>
+
+    <!-- Data Types -->
+    <div class="col-md-6">
+      <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#datatypeModal">
+        Data Types
+      </button>
+    </div>
+
+    <!-- Input Output -->
+    <div class="col-md-6">
+      <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#ioModal">
+        Input / Output
+      </button>
+    </div>
+
+    <!-- Calculator -->
+    <div class="col-md-12">
+      <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#calcModal">
+        Calculator Program
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== MODALS ===================== -->
+
+<!-- Variables Modal -->
+<div class="modal fade" id="variableModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title">Variables in Python</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <p><b>Variable क्या है?</b></p>
+        <p>
+          Variable एक container की तरह होता है जो data store करता है।
+          Python में variable declare करने के लिए datatype लिखने की जरूरत नहीं होती।
+        </p>
+
+<pre>
+# Variable Example
+
+x = 10          # Integer variable
+name = "Ramesh" # String variable
+
+print(x)
+print(name)
+</pre>
+
+        <p><b>Important:</b> Python dynamically typed language है।</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Data Types Modal -->
+<div class="modal fade" id="datatypeModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title">Data Types in Python</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <p><b>Main Data Types:</b></p>
+        <ul>
+          <li>int → Whole numbers</li>
+          <li>float → Decimal numbers</li>
+          <li>string → Text</li>
+          <li>boolean → True/False</li>
+        </ul>
+
+<pre>
+a = 10        # int
+b = 3.14      # float
+c = "Hello"   # string
+d = True      # boolean
+
+print(type(a))
+print(type(c))
+</pre>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Input Output Modal -->
+<div class="modal fade" id="ioModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title">Input / Output</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <p><b>input()</b> user से data लेता है।</p>
+        <p><b>print()</b> output दिखाता है।</p>
+
+<pre>
+# Input example
+
+name = input("Enter your name: ")
+
+print("Hello", name)
+</pre>
+
+        <p><b>Note:</b> input() हमेशा string return करता है।</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Calculator Modal -->
+<div class="modal fade" id="calcModal">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title">Simple Calculator Program</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <p>यह program user से दो numbers लेकर addition और subtraction करता है।</p>
+
+<pre>
+# Calculator Program
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+</pre>
+
+        <p><b>Explanation:</b></p>
+        <ul>
+          <li>int() → string को number में convert करता है।</li>
+          <li>+ → addition operator</li>
+          <li>- → subtraction operator</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Python Installation Modal -->
+<div class="modal fade" id="installModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title">Python Installation Guide</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <ol>
+          <li>Python.org website पर जाएँ।</li>
+          <li>Latest Python version download करें।</li>
+          <li>Install करते समय <b>Add Python to PATH</b> ✔ जरूर करें।</li>
+          <li>CMD में लिखें: <b>python --version</b></li>
+        </ol>
+
+        <p>अगर version show हो जाए तो Python successfully install हो गया।</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- 2nd pages--------------------------------------------------------------------------------------------- -->
+
+
+<div class="container py-5">
+  <h2 class="text-center mb-4 text-success">
+    🟢 Step 2: Control Statements
+  </h2>
+
+  <p class="text-center mb-5">
+    इस section में हम Conditions और Loops सीखेंगे।
+    जैसे if-else, loops, break, continue आदि।
+  </p>
+
+  <div class="row g-3">
+
+    <div class="col-md-6">
+      <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#ifModal">
+        if / else
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#elifModal">
+        elif
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#nestedModal">
+        Nested if
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#forModal">
+        for loop
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#whileModal">
+        while loop
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#bcpModal">
+        break / continue / pass
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= MODALS ================= -->
+
+<!-- IF ELSE -->
+<div class="modal fade" id="ifModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>if / else Statement</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>if condition True हो तो if block चलेगा, नहीं तो else block।</b></p>
+
+<pre>
+# Age Check Program
+
+age = 18
+
+if age >= 18:
+    print("You are Adult")
+else:
+    print("You are Minor")
+</pre>
+
+</div></div></div></div>
+
+<!-- ELIF -->
+<div class="modal fade" id="elifModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>elif Statement</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p>Multiple conditions check करने के लिए।</p>
+
+<pre>
+marks = 75
+
+if marks >= 90:
+    print("Grade A")
+
+elif marks >= 60:
+    print("Grade B")
+
+else:
+    print("Fail")
+</pre>
+
+</div></div></div></div>
+
+<!-- NESTED IF -->
+<div class="modal fade" id="nestedModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Nested if</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+age = 20
+citizen = True
+
+if age >= 18:
+    if citizen:
+        print("Eligible to vote")
+</pre>
+
+</div></div></div></div>
+
+<!-- FOR LOOP -->
+<div class="modal fade" id="forModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>for loop</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+# Print 1 to 5
+
+for i in range(1, 6):
+    print(i)
+</pre>
+
+</div></div></div></div>
+
+<!-- WHILE LOOP -->
+<div class="modal fade" id="whileModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>while loop</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+i = 1
+
+while i <= 5:
+    print(i)
+    i += 1
+</pre>
+
+</div></div></div></div>
+
+<!-- BREAK CONTINUE PASS -->
+<div class="modal fade" id="bcpModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>break / continue / pass</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+# break example
+for i in range(1, 6):
+    if i == 3:
+        break
+    print(i)
+
+# continue example
+for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)
+
+# pass example
+for i in range(1, 6):
+    if i == 3:
+        pass
+    print(i)
+</pre>
+
+</div></div></div></div>
+
+<!-- ================= PRACTICE SECTION ================= -->
+
+<div class="container py-5">
+  <h2 class="text-center mb-4 text-warning">
+    📌 Practice Programs
+  </h2>
+
+  <div class="row g-3">
+
+    <div class="col-md-6">
+      <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#patternModal">
+        Pattern Printing
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#tableModal">
+        Table Print
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#primeModal">
+        Prime Number
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#factorialModal">
+        Factorial
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Pattern -->
+<div class="modal fade" id="patternModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Pattern Printing</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+for i in range(1, 6):
+    print("*" * i)
+</pre>
+
+</div></div></div></div>
+
+<!-- Table -->
+<div class="modal fade" id="tableModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Table Print</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+num = int(input("Enter number: "))
+
+for i in range(1, 11):
+    print(num, "x", i, "=", num*i)
+</pre>
+
+</div></div></div></div>
+
+<!-- Prime -->
+<div class="modal fade" id="primeModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Prime Number</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+num = int(input("Enter number: "))
+count = 0
+
+for i in range(1, num+1):
+    if num % i == 0:
+        count += 1
+
+if count == 2:
+    print("Prime Number")
+else:
+    print("Not Prime")
+</pre>
+
+</div></div></div></div>
+
+<!-- Factorial -->
+<div class="modal fade" id="factorialModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Factorial Program</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+num = int(input("Enter number: "))
+fact = 1
+
+for i in range(1, num+1):
+    fact *= i
+
+print("Factorial:", fact)
+</pre>
+
+</div></div></div></div>
+
+
+
+<!-------------------3rd----------------------------------------------------------------------------------------------------------------------------->
+<div class="container py-5">
+  <h2 class="text-center mb-4">🟢 Step 3: Data Structures</h2>
+
+  <div class="row">
+
+    <!-- List -->
+    <div class="col-md-6">
+      <button class="btn btn-success topic-btn" data-bs-toggle="modal" data-bs-target="#listModal">
+        List
+      </button>
+    </div>
+
+    <!-- Tuple -->
+    <div class="col-md-6">
+      <button class="btn btn-primary topic-btn" data-bs-toggle="modal" data-bs-target="#tupleModal">
+        Tuple
+      </button>
+    </div>
+
+    <!-- Set -->
+    <div class="col-md-6">
+      <button class="btn btn-warning topic-btn" data-bs-toggle="modal" data-bs-target="#setModal">
+        Set
+      </button>
+    </div>
+
+    <!-- Dictionary -->
+    <div class="col-md-6">
+      <button class="btn btn-danger topic-btn" data-bs-toggle="modal" data-bs-target="#dictModal">
+        Dictionary
+      </button>
+    </div>
+
+    <!-- List Methods -->
+    <div class="col-md-6">
+      <button class="btn btn-info topic-btn" data-bs-toggle="modal" data-bs-target="#listMethodModal">
+        List Methods
+      </button>
+    </div>
+
+    <!-- Dictionary Methods -->
+    <div class="col-md-6">
+      <button class="btn btn-secondary topic-btn" data-bs-toggle="modal" data-bs-target="#dictMethodModal">
+        Dictionary Methods
+      </button>
+    </div>
+
+    <!-- Mutable vs Immutable -->
+    <div class="col-md-6">
+      <button class="btn btn-dark topic-btn" data-bs-toggle="modal" data-bs-target="#mutableModal">
+        Mutable vs Immutable
+      </button>
+    </div>
+
+    <!-- Practice -->
+    <div class="col-md-6">
+      <button class="btn btn-light topic-btn" data-bs-toggle="modal" data-bs-target="#practiceModal">
+        Practice Programs
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= MODALS ================= -->
+
+<!-- List -->
+<div class="modal fade" id="listModal">
+<div class="modal-dialog">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>List</h5></div>
+<div class="modal-body">
+<pre>
+numbers = [10, 20, 30]
+print(numbers[0])
+</pre>
+</div></div></div></div>
+
+<!-- Tuple -->
+<div class="modal fade" id="tupleModal">
+<div class="modal-dialog">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Tuple</h5></div>
+<div class="modal-body">
+<pre>
+data = (1, 2, 3)
+print(data[1])
+</pre>
+</div></div></div></div>
+
+<!-- Set -->
+<div class="modal fade" id="setModal">
+<div class="modal-dialog">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Set</h5></div>
+<div class="modal-body">
+<pre>
+nums = {1, 2, 2, 3}
+print(nums)   # Duplicate remove
+</pre>
+</div></div></div></div>
+
+<!-- Dictionary -->
+<div class="modal fade" id="dictModal">
+<div class="modal-dialog">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Dictionary</h5></div>
+<div class="modal-body">
+<pre>
+student = {
+    "name": "Ravi",
+    "age": 20
+}
+print(student["name"])
+</pre>
+</div></div></div></div>
+
+<!-- List Methods -->
+<div class="modal fade" id="listMethodModal">
+<div class="modal-dialog">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>List Methods</h5></div>
+<div class="modal-body">
+<pre>
+nums = [1, 2, 3]
+nums.append(4)
+nums.remove(2)
+nums.sort()
+print(nums)
+</pre>
+</div></div></div></div>
+
+<!-- Dictionary Methods -->
+<div class="modal fade" id="dictMethodModal">
+<div class="modal-dialog">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Dictionary Methods</h5></div>
+<div class="modal-body">
+<pre>
+student = {"name": "Ravi", "age": 20}
+
+print(student.keys())
+print(student.values())
+student.update({"age": 21})
+</pre>
+</div></div></div></div>
+
+<!-- Mutable vs Immutable -->
+<div class="modal fade" id="mutableModal">
+<div class="modal-dialog">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Mutable vs Immutable</h5></div>
+<div class="modal-body">
+<pre>
+# Mutable (changeable)
+list1 = [1, 2, 3]
+list1[0] = 10
+
+# Immutable (not changeable)
+tuple1 = (1, 2, 3)
+# tuple1[0] = 10  ❌ Error
+</pre>
+</div></div></div></div>
+
+<!-- Practice -->
+<div class="modal fade" id="practiceModal">
+<div class="modal-dialog">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Practice Programs</h5></div>
+<div class="modal-body">
+<pre>
+# Student Record Dictionary
+student = {
+    "name": "Amit",
+    "marks": 85
+}
+print(student)
+
+# List Sorting
+nums = [5, 2, 9, 1]
+nums.sort()
+print(nums)
+
+# Remove duplicates using set
+data = [1, 2, 2, 3, 4, 4]
+unique = list(set(data))
+print(unique)
+</pre>
+</div></div></div></div>
+<!------------------------------------------------------------------------4th Section------------------------------------------------------------------------------------------------->
+<div class="container py-5">
+  <h2 class="text-center mb-4 text-primary">
+    🟢 Step 4: Functions
+  </h2>
+
+  <p class="text-center mb-5">
+    Function एक reusable block of code होता है।
+    इससे code को बार-बार लिखने की जरूरत नहीं होती।
+  </p>
+
+  <div class="row g-3">
+
+    <div class="col-md-6">
+      <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#createFunc">
+        Function Create करना
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#paramFunc">
+        Parameters
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#returnFunc">
+        Return Statement
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#defaultFunc">
+        Default Argument
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#lambdaFunc">
+        Lambda Function
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#recursionFunc">
+        Recursion
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= MODALS ================= -->
+
+<!-- Function Create -->
+<div class="modal fade" id="createFunc">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Function Create करना</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>Function कैसे बनाते हैं?</b></p>
+
+<pre>
+# Function Definition
+
+def greet():
+    print("Hello Student")
+
+# Function Call
+greet()
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+<li>def → function define करने के लिए</li>
+<li>greet() → function का नाम</li>
+<li>Function call करना जरूरी है</li>
+</ul>
+
+</div></div></div></div>
+
+<!-- Parameters -->
+<div class="modal fade" id="paramFunc">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Parameters</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+def greet(name):
+    print("Hello", name)
+
+greet("Ravi")
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+<li>name → parameter</li>
+<li>"Ravi" → argument</li>
+</ul>
+
+</div></div></div></div>
+
+<!-- Return -->
+<div class="modal fade" id="returnFunc">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Return Statement</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+print(result)
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+<li>return value वापस देता है</li>
+<li>return के बाद function समाप्त हो जाता है</li>
+</ul>
+
+</div></div></div></div>
+
+<!-- Default Argument -->
+<div class="modal fade" id="defaultFunc">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Default Argument</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+def greet(name="Student"):
+    print("Hello", name)
+
+greet()          # Default use होगा
+greet("Amit")    # Custom value
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+<li>Default value पहले से set रहती है</li>
+<li>Argument नहीं देंगे तो default use होगा</li>
+</ul>
+
+</div></div></div></div>
+
+<!-- Lambda -->
+<div class="modal fade" id="lambdaFunc">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Lambda Function</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>Lambda → Short one-line function</b></p>
+
+<pre>
+# Normal Function
+def square(x):
+    return x * x
+
+# Lambda Function
+square = lambda x: x * x
+
+print(square(5))
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+<li>lambda keyword use होता है</li>
+<li>Single expression only</li>
+</ul>
+
+</div></div></div></div>
+
+<!-- Recursion -->
+<div class="modal fade" id="recursionFunc">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Recursion</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>Recursion:</b> Function खुद को call करता है।</p>
+
+<pre>
+# Factorial using Recursion
+
+def factorial(n):
+
+    if n == 1:
+        return 1
+
+    return n * factorial(n - 1)
+
+print(factorial(5))
+</pre>
+
+<p><b>Explanation:</b></p>
+<ul>
+<li>Base condition जरूरी है</li>
+<li>नहीं तो infinite recursion हो जाएगा</li>
+<li>5! = 5 × 4 × 3 × 2 × 1</li>
+</ul>
+
+</div></div></div></div>
+
+
+<div class="container py-5">
+  <h2 class="text-center mb-4 text-danger">
+    📝 Python Function Exercises (1–18)
+  </h2>
+
+  <div class="row g-3">
+
+    <!-- 18 Buttons -->
+    <!-- Copy Same Pattern -->
+
+    <div class="col-md-3"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ex1">Exercise 1</button></div>
+    <div class="col-md-3"><button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#ex2">Exercise 2</button></div>
+    <div class="col-md-3"><button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#ex3">Exercise 3</button></div>
+    <div class="col-md-3"><button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#ex4">Exercise 4</button></div>
+
+    <div class="col-md-3"><button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#ex5">Exercise 5</button></div>
+    <div class="col-md-3"><button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#ex6">Exercise 6</button></div>
+    <div class="col-md-3"><button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#ex7">Exercise 7</button></div>
+    <div class="col-md-3"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ex8">Exercise 8</button></div>
+
+    <div class="col-md-3"><button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#ex9">Exercise 9</button></div>
+    <div class="col-md-3"><button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#ex10">Exercise 10</button></div>
+    <div class="col-md-3"><button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#ex11">Exercise 11</button></div>
+    <div class="col-md-3"><button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#ex12">Exercise 12</button></div>
+
+    <div class="col-md-3"><button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#ex13">Exercise 13</button></div>
+    <div class="col-md-3"><button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#ex14">Exercise 14</button></div>
+    <div class="col-md-3"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ex15">Exercise 15</button></div>
+    <div class="col-md-3"><button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#ex16">Exercise 16</button></div>
+
+    <div class="col-md-6"><button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#ex17">Exercise 17</button></div>
+    <div class="col-md-6"><button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#ex18">Exercise 18</button></div>
+
+  </div>
+</div>
+
+
+<div class="modal fade" id="ex1">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 1: Create a Function</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Create a simple function that prints "Hello Python".</p>
+
+<h6>📖 Explanation:</h6>
+<p>Function बनाने के लिए <b>def</b> keyword use करते हैं।</p>
+
+<h6>💻 Code:</h6>
+<pre>
+def greet():
+    print("Hello Python")
+
+greet()
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>Hello Python</pre>
+
+</div></div></div></div>
+
+
+<div class="modal fade" id="ex2">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 2: Variable Length Arguments</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Create a function that accepts multiple numbers and returns their sum.</p>
+
+<h6>📖 Explanation:</h6>
+<p>*args multiple values लेने के लिए use होता है।</p>
+
+<h6>💻 Code:</h6>
+<pre>
+def add_numbers(*args):
+    return sum(args)
+
+print(add_numbers(10,20,30))
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>60</pre>
+
+</div></div></div></div>
+
+
+<div class="modal fade" id="ex3">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 3: Return Multiple Values</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Return addition and subtraction from a function.</p>
+
+<h6>💻 Code:</h6>
+<pre>
+def calculate(a,b):
+    return a+b, a-b
+
+print(calculate(10,5))
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>(15, 5)</pre>
+
+</div></div></div></div>
+
+
+<div class="modal fade" id="ex4">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 4: Default Argument</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Create a function with default argument.</p>
+
+<h6>💻 Code:</h6>
+<pre>
+def greet(name="Student"):
+    print("Hello", name)
+
+greet()
+greet("Ravi")
+</pre>
+
+</div></div></div></div>
+
+<div class="modal fade" id="ex5">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 5: Inner Function</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Create a function inside another function.</p>
+
+<h6>💻 Code:</h6>
+<pre>
+def outer():
+    def inner():
+        print("Inner function")
+    inner()
+
+outer()
+</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex6">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 6: Create a recursive function</h5>
+
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n-1)
+
+print(factorial(5))
+</pre>
+
+<pre>120</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex7">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Exercise 7: Assign a different name to function and call it through the new name</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button></div>
+<div class="modal-body">
+<pre>
+def greet():
+    print("Hello")
+
+new_name = greet
+new_name()
+</pre>
+</div></div></div></div>
+<div class="modal fade" id="ex8">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Exercise 8: Even Numbers</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button></div>
+<div class="modal-body">
+<pre>
+even = [i for i in range(4,31) if i%2==0]
+print(even)
+</pre>
+</div></div></div></div>
+<div class="modal fade" id="ex9">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header"><h5>Exercise 9: Largest Item</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button></div>
+<div class="modal-body">
+<pre>
+numbers = [10,45,67,89]
+print(max(numbers))
+</pre>
+</div></div></div></div>
+<!-- Exercise 10 -->
+<div class="modal fade" id="ex10">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 10: Positional & Keyword Arguments</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Call a function using both positional and keyword arguments.</p>
+
+<h6>📖 Explanation:</h6>
+<ul>
+<li>Positional → Order matters</li>
+<li>Keyword → Name specify करते हैं</li>
+</ul>
+
+<h6>💻 Code:</h6>
+<pre>
+def info(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+# Positional Call
+info("Ravi", 25)
+
+# Keyword Call
+info(age=25, name="Ravi")
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>
+Name: Ravi
+Age: 25
+Name: Ravi
+Age: 25
+</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex11">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 11: Keyword Arguments (**kwargs)</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Create a function that accepts unlimited keyword arguments.</p>
+
+<h6>📖 Explanation:</h6>
+<p>**kwargs dictionary की तरह काम करता है।</p>
+
+<h6>💻 Code:</h6>
+<pre>
+def student(**kwargs):
+    for key, value in kwargs.items():
+        print(key, ":", value)
+
+student(name="Ravi", age=20)
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>
+name : Ravi
+age : 20
+</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex12">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 12: Modify Global Variable</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Modify a global variable inside a function.</p>
+
+<h6>📖 Explanation:</h6>
+<p>global keyword use करके global variable modify करते हैं।</p>
+
+<h6>💻 Code:</h6>
+<pre>
+x = 10
+
+def modify():
+    global x
+    x = 50
+
+modify()
+print(x)
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>50</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex13">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 13: Recursive Factorial</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Write a recursive function to calculate factorial.</p>
+
+<h6>📖 Explanation:</h6>
+<p>Recursive function खुद को call करता है। Base condition जरूरी है।</p>
+
+<h6>💻 Code:</h6>
+<pre>
+def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>120</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex14">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 14: Lambda Square</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Create a lambda function that squares a number.</p>
+
+<h6>💻 Code:</h6>
+<pre>
+square = lambda x: x * x
+print(square(6))
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>36</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex15">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 15: Lambda + filter()</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Use lambda with filter() to get even numbers.</p>
+
+<h6>💻 Code:</h6>
+<pre>
+nums = [1,2,3,4,5,6]
+even = list(filter(lambda x: x % 2 == 0, nums))
+print(even)
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>[2, 4, 6]</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex16">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 16: Lambda + map()</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Use lambda with map() to double list elements.</p>
+
+<h6>💻 Code:</h6>
+<pre>
+nums = [1,2,3]
+double = list(map(lambda x: x * 2, nums))
+print(double)
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>[2, 4, 6]</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex17">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 17: Lambda + sorted()</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Sort list of tuples by second element.</p>
+
+<h6>💻 Code:</h6>
+<pre>
+data = [("A",3), ("B",1), ("C",2)]
+sorted_data = sorted(data, key=lambda x: x[1])
+print(sorted_data)
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>[('B', 1), ('C', 2), ('A', 3)]</pre>
+
+</div></div></div></div>
+<div class="modal fade" id="ex18">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Exercise 18: Higher Order Function</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Question:</h6>
+<p>Create a higher-order function that accepts another function.</p>
+
+<h6>💻 Code:</h6>
+<pre>
+def apply_func(func, value):
+    return func(value)
+
+def square(x):
+    return x * x
+
+print(apply_func(square, 5))
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>25</pre>
+
+</div></div></div></div>
+
+
+
+<!------------------------------------------------------------------------5th Section----------------------------------------------------------------------------------->
+<div class="modal fade" id="classModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5 class="modal-title">Class & Object</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Concept:</h6>
+<p>
+<b>Class</b> एक blueprint (नक्शा) है।  
+<b>Object</b> उस class का real instance है।
+</p>
+
+<h6>📖 Explanation:</h6>
+<ul>
+<li>Class में properties (variables) और methods (functions) होते हैं।</li>
+<li>Object class से बनाया जाता है।</li>
+</ul>
+
+<h6>💻 Code:</h6>
+<pre>
+# Class define करना
+class Student:
+    pass   # Empty class
+
+# Object बनाना
+s1 = Student()
+
+# Object का type check
+print(type(s1))
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>&lt;class '__main__.Student'&gt;</pre>
+
+📌 <b>Exam Point:</b>  
+Class is a blueprint. Object is an instance of class.
+
+</div></div></div></div>
+
+<div class="modal fade" id="constructorModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5 class="modal-title">Constructor (__init__)</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Concept:</h6>
+<p>
+Constructor special method है जो object create होते ही automatically call होता है।
+</p>
+
+<h6>📖 Explanation:</h6>
+<ul>
+<li>Constructor का नाम हमेशा <b>__init__</b> होता है।</li>
+<li>self object को refer करता है।</li>
+</ul>
+
+<h6>💻 Code:</h6>
+<pre>
+class Student:
+
+    # Constructor
+    def __init__(self, name):
+        self.name = name   # Instance variable
+
+# Object create
+s1 = Student("Ravi")
+
+print(s1.name)
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>Ravi</pre>
+
+📌 <b>Important:</b>  
+Constructor runs automatically when object is created.
+
+</div></div></div></div>
+<div class="modal fade" id="inheritanceModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5 class="modal-title">Inheritance</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Exam Ready Definition:</h6>
+<p>
+Inheritance is a feature where one class acquires properties and methods of another class.
+It promotes code reusability.
+</p>
+
+<h6>📖 Explanation:</h6>
+<ul>
+<li>Parent class → Base class</li>
+<li>Child class → Derived class</li>
+</ul>
+
+<h6>💻 Code:</h6>
+<pre>
+# Parent Class
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+# Child Class
+class Dog(Animal):
+    pass
+
+d = Dog()
+d.speak()   # Parent method use
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>Animal speaks</pre>
+
+📌 Child class parent class की properties use कर सकती है।
+
+</div></div></div></div>
+<div class="modal fade" id="polyModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5 class="modal-title">Polymorphism & Override</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Concept:</h6>
+<p>Same method name, different behavior.</p>
+
+<h6>📖 Explanation:</h6>
+<ul>
+<li>Method overriding → Child class parent method redefine करती है।</li>
+</ul>
+
+<h6>💻 Code:</h6>
+<pre>
+class Animal:
+    def sound(self):
+        print("Animal sound")
+
+class Dog(Animal):
+    def sound(self):   # Override
+        print("Bow Bow")
+
+class Cat(Animal):
+    def sound(self):
+        print("Meow")
+
+animals = [Dog(), Cat()]
+
+for a in animals:
+    a.sound()
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>
+Bow Bow
+Meow
+</pre>
+
+📌 Override = Same method name in child class.
+
+</div></div></div></div>
+<div class="modal fade" id="encapModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5 class="modal-title">Encapsulation</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>📝 Concept:</h6>
+<p>
+Encapsulation data hiding की technique है।
+</p>
+
+<h6>📖 Explanation:</h6>
+<ul>
+<li>Private variable → __variable</li>
+<li>Getter method से access करते हैं।</li>
+</ul>
+
+<h6>💻 Code:</h6>
+<pre>
+class Bank:
+    def __init__(self, balance):
+        self.__balance = balance   # Private variable
+
+    def get_balance(self):
+        return self.__balance
+
+b = Bank(5000)
+
+print(b.get_balance())
+</pre>
+
+<h6>🧠 Output:</h6>
+<pre>5000</pre>
+
+📌 Direct access → Error  
+b.__balance ❌
+
+</div></div></div></div>
+<div class="modal fade" id="practiceModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5 class="modal-title">Practice Programs</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+
+<h6>1️⃣ Student Class</h6>
+<pre>
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def display(self):
+        print(self.name, self.marks)
+
+s1 = Student("Ravi", 85)
+s1.display()
+</pre>
+
+<h6>2️⃣ Bank Class</h6>
+<pre>
+class Bank:
+    def __init__(self, balance):
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+
+b = Bank(1000)
+b.deposit(500)
+print(b.balance)
+</pre>
+
+<h6>3️⃣ Animal Example</h6>
+<pre>
+class Animal:
+    def speak(self):
+        print("Animal sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Bow")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow")
+</pre>
+
+</div></div></div></div>
+
+
+<!-- 6th Section file ---------------------------------------------------------------------------------------------------------------------------- -->
+<div class="container py-5">
+  <h2 class="text-center mb-4 text-info">
+    🟢 Step 6: File Handling
+  </h2>
+
+  <div class="row g-3">
+
+    <div class="col-md-6">
+      <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#openModal">
+        open() Function
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#readModal">
+        read() Method
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#writeModal">
+        write() & append()
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#withModal">
+        with Statement
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#textModal">
+        Text File Example
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#csvModal">
+        CSV File Example
+      </button>
+    </div>
+
+    <div class="col-md-12">
+      <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#practiceModal">
+        Practice: Student File Save & Read
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= MODALS ================= -->
+
+<!-- open() -->
+<div class="modal fade" id="openModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>open() Function</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>open()</b> file को खोलने के लिए use होता है।</p>
+
+<pre>
+# Syntax:
+file = open("filename.txt", "mode")
+
+# Modes:
+# "r"  → Read
+# "w"  → Write (पुराना data delete)
+# "a"  → Append (data add)
+</pre>
+
+</div></div></div></div>
+
+
+<!-- read() -->
+<div class="modal fade" id="readModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>read() Method</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+# File open in read mode
+file = open("student.txt", "r")
+
+# Read complete file
+data = file.read()
+
+print(data)
+
+file.close()
+</pre>
+
+<p>read() पूरा content पढ़ता है।</p>
+
+</div></div></div></div>
+
+
+<!-- write & append -->
+<div class="modal fade" id="writeModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>write() & append()</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+# Write mode (old data delete करेगा)
+file = open("student.txt", "w")
+
+file.write("Name: Ravi\n")
+file.write("Marks: 85\n")
+
+file.close()
+
+
+# Append mode (data add करेगा)
+file = open("student.txt", "a")
+
+file.write("City: Delhi\n")
+
+file.close()
+</pre>
+
+</div></div></div></div>
+
+
+<!-- with statement -->
+<div class="modal fade" id="withModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>with Statement</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>Best Method:</b> Automatically file close करता है।</p>
+
+<pre>
+with open("student.txt", "r") as file:
+    data = file.read()
+    print(data)
+
+# No need to write file.close()
+</pre>
+
+</div></div></div></div>
+
+
+<!-- Text File -->
+<div class="modal fade" id="textModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Text File Complete Example</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+# Writing Text File
+
+with open("student.txt", "w") as file:
+    file.write("Name: Ravi\n")
+    file.write("Marks: 85\n")
+
+
+# Reading Text File
+
+with open("student.txt", "r") as file:
+    print(file.read())
+</pre>
+
+</div></div></div></div>
+
+
+<!-- CSV -->
+<div class="modal fade" id="csvModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>CSV File Example</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+import csv
+
+# Write CSV File
+with open("students.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Name", "Marks"])
+    writer.writerow(["Ravi", 85])
+    writer.writerow(["Amit", 90])
+
+
+# Read CSV File
+with open("students.csv", "r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+</pre>
+
+</div></div></div></div>
+
+
+<!-- Practice -->
+<div class="modal fade" id="practiceModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Practice: Student Data Save & Read</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+# Save Student Data
+
+name = input("Enter Name: ")
+marks = input("Enter Marks: ")
+
+with open("students.txt", "a") as file:
+    file.write(name + "," + marks + "\n")
+
+print("Data Saved!")
+
+
+# Read Student Data
+
+with open("students.txt", "r") as file:
+    print("Student Records:")
+    print(file.read())
+</pre>
+
+</div></div></div></div>
+
+<!-------------------------------------------------------------------------7th file tutorials------------------------------------------------------------------>
+<div class="container py-5">
+  <h2 class="text-center mb-4 text-danger">
+    🟢 Step 7: Exception Handling
+  </h2>
+
+  <div class="row g-3">
+
+    <div class="col-md-6">
+      <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#tryModal">
+        try Block
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#exceptModal">
+        except Block
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#finallyModal">
+        finally Block
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#multipleModal">
+        Multiple except
+      </button>
+    </div>
+
+    <div class="col-md-12">
+      <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#practiceModal">
+        Practice Programs
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= MODALS ================= -->
+
+<!-- try -->
+<div class="modal fade" id="tryModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>try Block</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>try:</b> Risky code यहाँ लिखा जाता है।</p>
+
+<pre>
+try:
+    num = int(input("Enter number: "))
+    print(10 / num)   # Risky code
+
+except:
+    print("Error occurred")
+</pre>
+
+</div></div></div></div>
+
+
+<!-- except -->
+<div class="modal fade" id="exceptModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>except Block</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>except:</b> Error को handle करता है।</p>
+
+<pre>
+try:
+    x = 10 / 0
+
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+</pre>
+
+</div></div></div></div>
+
+
+<!-- finally -->
+<div class="modal fade" id="finallyModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>finally Block</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>finally:</b> Always execute होगा (error हो या न हो)</p>
+
+<pre>
+try:
+    print("Hello")
+
+except:
+    print("Error")
+
+finally:
+    print("This always runs")
+</pre>
+
+</div></div></div></div>
+
+
+<!-- multiple except -->
+<div class="modal fade" id="multipleModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Multiple except</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p>Different errors के लिए अलग except block.</p>
+
+<pre>
+try:
+    num = int(input("Enter number: "))
+    result = 10 / num
+
+except ZeroDivisionError:
+    print("Division by zero not allowed!")
+
+except ValueError:
+    print("Invalid input! Please enter number.")
+
+finally:
+    print("Program End")
+</pre>
+
+</div></div></div></div>
+
+
+<!-- Practice -->
+<div class="modal fade" id="practiceModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Practice Programs</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p><b>1️⃣ Divide by Zero Handle</b></p>
+
+<pre>
+try:
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+
+    result = num1 / num2
+
+    print("Result:", result)
+
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")
+
+except ValueError:
+    print("Error: Please enter valid numbers!")
+</pre>
+
+<hr>
+
+<p><b>2️⃣ File Not Found Handle</b></p>
+
+<pre>
+try:
+    file = open("data.txt", "r")
+    print(file.read())
+
+except FileNotFoundError:
+    print("Error: File not found!")
+
+finally:
+    print("Operation completed")
+</pre>
+
+</div></div></div></div>
+ <!----------------------------------------------------------------------------8th section-------------------------------------------------------------------------------------->
+ <div class="container py-5">
+  <h2 class="text-center mb-4 text-success">
+    🟢 Step 8: Advanced Python
+  </h2>
+
+  <div class="row g-3">
+
+    <div class="col-md-6">
+      <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#listCompModal">
+        List Comprehension
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#dictCompModal">
+        Dictionary Comprehension
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#decoratorModal">
+        Decorators (Basic)
+      </button>
+    </div>
+
+    <div class="col-md-6">
+      <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#generatorModal">
+        Generators
+      </button>
+    </div>
+
+    <div class="col-md-12">
+      <button class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#moduleModal">
+        Modules & Packages
+      </button>
+    </div>
+
+  </div>
+
+  <hr class="my-5">
+
+  <h2 class="text-center mb-4 text-danger">
+    🎯 Step 9: Choose Your Career Path
+  </h2>
+
+  <div class="row g-3">
+
+    <div class="col-md-12">
+      <button class="btn btn-lg btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#webModal">
+        🌐 Web Development (Django / Flask / API / MySQL)
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= MODALS ================= -->
+
+<!-- List Comprehension -->
+<div class="modal fade" id="listCompModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>List Comprehension</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p>Short way to create list.</p>
+
+<pre>
+# Normal way
+numbers = []
+for i in range(1, 6):
+    numbers.append(i*i)
+
+print(numbers)
+
+
+# List comprehension way
+numbers = [i*i for i in range(1, 6)]
+
+print(numbers)
+</pre>
+
+</div></div></div></div>
+
+
+<!-- Dictionary Comprehension -->
+<div class="modal fade" id="dictCompModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Dictionary Comprehension</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+# Create dictionary of squares
+
+squares = {i: i*i for i in range(1, 6)}
+
+print(squares)
+</pre>
+
+</div></div></div></div>
+
+
+<!-- Decorator -->
+<div class="modal fade" id="decoratorModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Decorators (Basic)</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p>Decorator function behavior modify करता है।</p>
+
+<pre>
+def decorator_func(func):
+
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+
+    return wrapper
+
+
+@decorator_func
+def say_hello():
+    print("Hello!")
+
+say_hello()
+</pre>
+
+</div></div></div></div>
+
+
+<!-- Generator -->
+<div class="modal fade" id="generatorModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Generators</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<p>Generator memory efficient iterator है।</p>
+
+<pre>
+def my_generator():
+
+    for i in range(1, 4):
+        yield i   # return की तरह but pause करता है
+
+gen = my_generator()
+
+for value in gen:
+    print(value)
+</pre>
+
+</div></div></div></div>
+
+
+<!-- Modules -->
+<div class="modal fade" id="moduleModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>Modules & Packages</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<pre>
+# Import module
+
+import math
+
+print(math.sqrt(25))
+
+
+# Custom module example
+# file1.py
+def greet():
+    print("Hello")
+
+# main.py
+import file1
+file1.greet()
+</pre>
+
+</div></div></div></div>
+
+
+<!-- Web Development -->
+<div class="modal fade" id="webModal">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content text-dark">
+<div class="modal-header">
+<h5>🌐 Web Development Career Path</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+
+<h6>Django</h6>
+<p>High-level Python web framework (Full stack).</p>
+
+<h6>Flask</h6>
+<p>Lightweight Python web framework.</p>
+
+<h6>API</h6>
+<p>Application Programming Interface – Backend data serve करने के लिए।</p>
+
+<h6>MySQL</h6>
+<p>Database for storing application data.</p>
+
+<pre>
+# Flask Basic Example
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello World"
+
+app.run()
+</pre>
+
+</div></div></div></div>
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
