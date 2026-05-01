@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz App</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row">
+    <div class="card p-4 shadow">
+
+        <h3 class="text-center mb-3">Quiz App</h3>
+
+        <!-- Dropdown -->
+        <select id="category" class="form-select mb-3">
+            <option value="">-- Select Subject --</option>
+            <option value="PythonDay_1">Python Day 1</option>
+            <option value="pythonDay_2">pythonDay 2</option>
+            <option value="PythonDay_3">PythonDay 3</option>
+            <option value="PythonDay_4">PythonDay 4</option>
+
+            <option value="PythonDay_5">Python Day 5</option>
+            <option value="pythonDay_6">pythonDay 6</option>
+            <option value="PythonDay_7">PythonDay 7</option>
+            <option value="PythonDay_8">PythonDay 8</option>
+
+            <option value="PythonDay_9">Python Day 9</option>
+            <option value="pythonDay_10">pythonDay 10</option>
+            <option value="PythonDay_11">PythonDay 11</option>
+            <option value="PythonDay_12">PythonDay 12</option>
+
+            <option value="PythonDay_13">Python Day 13</option>
+            <option value="PythonDay_14">pythonDay 14</option>
+                        
+        </select>
+
+        <!-- Question -->
+        <h5 id="question">Please select subject</h5>
+
+        <!-- Options -->
+        <div id="options" class="mt-3"></div>
+
+        <!-- Result -->
+        <div id="result" class="mt-3 fw-bold"></div>
+
+        <button id="nextBtn" class="btn btn-primary mt-3 d-none">Next</button>
+
+    </div>
+</div></div>
+
+<script>
+
+let questions = {
+    PythonDay_1: [
+  {q:"Python kya hai?", o:["Programming Language","Snake","Operating System","Browser"], a:"Programming Language"},
+  {q:"Python ka creator kaun hai?", o:["Dennis Ritchie","James Gosling","Guido van Rossum","Elon Musk"], a:"Guido van Rossum"},
+  {q:"Python file ka extension kya hota hai?", o:[".java",".py",".html",".css"], a:".py"},
+  {q:"print() ka use kisliye hota hai?", o:["Input","Output","Loop","File"], a:"Output"},
+  {q:"Python me variable kaise likhte hain?", o:["int a=10","var a=10","a=10","declare a=10"], a:"a=10"},
+  {q:"Python case sensitive hai?", o:["Yes","No","Sometimes","None"], a:"Yes"},
+  {q:"Input lene ke liye kya use hota hai?", o:["get()","input()","read()","scan()"], a:"input()"},
+  {q:"Comment ka symbol kya hai?", o:["//","#","<!-- -->","/* */"], a:"#"},
+  {q:"print(2+3) ka output kya hoga?", o:["23","5","Error","None"], a:"5"},
+  {q:"print('Hello'+'World') ka output?", o:["Hello World","HelloWorld","Error","Hello+World"], a:"HelloWorld"},
+  {q:"String kaise likhte hain?", o:["\" \"","' '","Dono","None"], a:"Dono"},
+  {q:"Number datatype kaun sa hai?", o:["int","str","list","dict"], a:"int"},
+  {q:"Indentation ka role kya hai?", o:["Design","Syntax","Optional","Error"], a:"Syntax"},
+  {q:"x=5; print(x) ka output?", o:["5","x","Error","None"], a:"5"},
+  {q:"Multiple assignment kaise hota hai?", o:["a=b=5","a,b=1,2","Dono","None"], a:"Dono"}
+],
+    pythonDay_2: [
+  {q:"Which operator is used for addition in Python?", o:["+","-","*","/"], a:"+"},
+  {q:"Which operator is used for subtraction?", o:["+","-","*","/"], a:"-"},
+  {q:"Which operator is used for multiplication?", o:["+","-","*","/"], a:"*"},
+  {q:"Which operator is used for division?", o:["+","-","*","/"], a:"/"},
+  {q:"Which operator gives remainder?", o:["//","%","**","/"], a:"%"},
+  {q:"Which operator is used for power?", o:["^","**","//","%"], a:"**"},
+  {q:"Which operator is used for floor division?", o:["/","//","%","**"], a:"//"},
+  {q:"Which operator checks equality?", o:["=","==","!=","<"], a:"=="},
+  {q:"Which operator checks not equal?", o:["=","==","!=","<"], a:"!="},
+  {q:"Which operator is used for greater than?", o:[">","<",">=","<="], a:">"},
+  {q:"Which operator is used for less than?", o:[">","<",">=","<="], a:"<"},
+  {q:"Which keyword is used for condition checking?", o:["loop","if","def","class"], a:"if"},
+  {q:"Which keyword is used for alternative condition?", o:["else","elif","loop","break"], a:"else"},
+  {q:"Which keyword is used for multiple conditions?", o:["if","else","elif","def"], a:"elif"},
+  {q:"Which operator is used for logical AND?", o:["and","or","not","&&"], a:"and"}
+],
+    PythonDay_3: [
+  {q:"Which loop is used to iterate over a sequence in Python?", o:["for loop","if loop","while loop","switch"], a:"for loop"},
+  {q:"Which loop runs until a condition becomes false?", o:["for loop","while loop","if loop","do loop"], a:"while loop"},
+  {q:"What does range(5) generate?", o:["0 to 4","1 to 5","0 to 5","Error"], a:"0 to 4"},
+  {q:"Which keyword is used to exit a loop?", o:["exit","stop","break","end"], a:"break"},
+  {q:"Which keyword skips current iteration?", o:["pass","skip","continue","next"], a:"continue"},
+  {q:"What will be output?\nfor i in range(3): print(i)", o:["0 1 2","1 2 3","0 1 2 3","Error"], a:"0 1 2"},
+  {q:"Which loop is best when number of iterations is known?", o:["while","for","if","none"], a:"for"},
+  {q:"Infinite loop ka example kaun sa hai?", o:["while True","for i in range(5)","if True","none"], a:"while True"},
+  {q:"range(1,5) ka output kya hai?", o:["1 to 4","1 to 5","0 to 5","Error"], a:"1 to 4"},
+  {q:"Nested loop kya hota hai?", o:["Loop inside loop","Loop outside loop","Only one loop","None"], a:"Loop inside loop"},
+  {q:"pass keyword ka use kya hai?", o:["Skip iteration","Do nothing","Stop loop","Repeat loop"], a:"Do nothing"},
+  {q:"What is the output?\ni=1\nwhile i<=3:\n print(i)\n i+=1", o:["1 2 3","1 2","2 3","Error"], a:"1 2 3"},
+  {q:"Which function is commonly used with for loop?", o:["len()","print()","range()","all"], a:"range()"},
+  {q:"Loop control statements kaun se hain?", o:["break, continue","if, else","def, class","try, except"], a:"break, continue"},
+  {q:"What happens if break is used inside loop?", o:["Loop stops","Loop continues","Error","Restart loop"], a:"Loop stops"}
+],
+
+    PythonDay_4: [
+  {q:"What is a string in Python?", o:["Collection of characters","Number type","Boolean value","Function"], a:"Collection of characters"},
+  {q:"Which symbol is used to define a string?", o:["\" \"","' '","Both","None"], a:"Both"},
+  {q:"What does len() do with a string?", o:["Adds string","Finds length","Deletes string","None"], a:"Finds length"},
+  {q:"What is the output of print('Hello'[0])?", o:["H","e","Hello","Error"], a:"H"},
+  {q:"What is string indexing?", o:["Access characters by position","Looping","Deleting","None"], a:"Access characters by position"},
+  {q:"What is the output of print('Python'[-1])?", o:["P","n","o","Error"], a:"n"},
+  {q:"Which method converts string to uppercase?", o:["upper()","lower()","title()","None"], a:"upper()"},
+  {q:"Which method converts string to lowercase?", o:["upper()","lower()","capitalize()","None"], a:"lower()"},
+  {q:"What does strip() do?", o:["Removes spaces","Adds spaces","Splits string","None"], a:"Removes spaces"},
+  {q:"What is the output of 'Hi' + 'There'?", o:["HiThere","Hi There","Error","None"], a:"HiThere"},
+  {q:"Which method splits a string?", o:["split()","join()","replace()","None"], a:"split()"},
+  {q:"Which method replaces text in string?", o:["replace()","split()","join()","None"], a:"replace()"},
+  {q:"Are Python strings mutable?", o:["Yes","No","Sometimes","None"], a:"No"},
+  {q:"What is slicing in string?", o:["Cutting part of string","Deleting string","Adding string","None"], a:"Cutting part of string"},
+  {q:"What is the output of print('Python'[1:4])?", o:["yth","Pyt","tho","Error"], a:"yth"}
+    ],
+
+    PythonDay_5: [
+  {q:"What is a list in Python?", o:["Ordered collection","Unordered collection","Number type","Function"], a:"Ordered collection"},
+  {q:"Which symbol is used to create a list?", o:["{}","[]","()","<>"], a:"[]"},
+  {q:"How do you access first element of list L?", o:["L(0)","L[1]","L[0]","L{-1}"], a:"L[0]"},
+  {q:"Which method adds element at end of list?", o:["add()","append()","insert()","push()"], a:"append()"},
+  {q:"Which method inserts element at specific index?", o:["append()","add()","insert()","extend()"], a:"insert()"},
+  {q:"Which method removes last element?", o:["delete()","pop()","remove()","clear()"], a:"pop()"},
+  {q:"Which method removes specific value?", o:["pop()","delete()","remove()","clear()"], a:"remove()"},
+  {q:"Which function returns length of list?", o:["size()","count()","len()","length()"], a:"len()"},
+  {q:"Which method sorts list?", o:["order()","sort()","arrange()","set()"], a:"sort()"},
+  {q:"Which method reverses list?", o:["flip()","reverse()","invert()","back()"], a:"reverse()"},
+  {q:"What is index of last element?", o:["0","-1","1","None"], a:"-1"},
+  {q:"Which method clears all elements?", o:["removeAll()","clear()","delete()","popAll()"], a:"clear()"},
+  {q:"How to copy a list?", o:["copy()","clone()","duplicate()","same()"], a:"copy()"},
+  {q:"Which operator concatenates lists?", o:["-","+","*","/"], a:"+"},
+  {q:"List allows duplicate values?", o:["Yes","No","Sometimes","Error"], a:"Yes"}
+    ],
+    PythonDay_6: [
+  {q:"What is a tuple in Python?", o:["Mutable collection","Immutable collection","Loop","Function"], a:"Immutable collection"},
+  {q:"Tuple is defined using which brackets?", o:["[]","{}","()","<>"], a:"()"},
+  {q:"Can we modify a tuple after creation?", o:["Yes","No","Sometimes","Only once"], a:"No"},
+  {q:"Example of tuple?", o:["[1,2,3]","(1,2,3)","{1,2,3}","<1,2,3>"], a:"(1,2,3)"},
+  {q:"Tuple allows duplicate values?", o:["Yes","No","Only numbers","Only strings"], a:"Yes"},
+  {q:"What is a set in Python?", o:["Ordered collection","Unordered collection","Loop","Class"], a:"Unordered collection"},
+  {q:"Set is defined using which brackets?", o:["[]","{}","()","<>"], a:"{}"},
+  {q:"Set allows duplicate values?", o:["Yes","No","Sometimes","Only numbers"], a:"No"},
+  {q:"What will be output of set([1,1,2])?", o:["[1,1,2]","{1,1,2}","{1,2}","Error"], a:"{1,2}"},
+  {q:"Which method is used to add element in set?", o:["append()","add()","insert()","push()"], a:"add()"},
+  {q:"Which method is used to remove element from set?", o:["delete()","remove()","popitem()","clearone()"], a:"remove()"},
+  {q:"Are sets ordered?", o:["Yes","No","Sometimes","Depends"], a:"No"},
+  {q:"Can a set contain list?", o:["Yes","No","Sometimes","Only tuple"], a:"No"},
+  {q:"Tuple vs Set main difference?", o:["Tuple mutable","Set ordered","Tuple immutable","Set allows duplicates"], a:"Tuple immutable"},
+  {q:"Which is faster: tuple or list?", o:["List","Tuple","Both same","Depends"], a:"Tuple"}
+    ],
+    PythonDay_7: [
+  {q:"What is a dictionary in Python?", o:["Ordered list","Key-value pair collection","Loop","Function"], a:"Key-value pair collection"},
+  {q:"Which brackets are used in dictionary?", o:["[]","()","{}","<>"], a:"{}"},
+  {q:"How do you access value in dictionary?", o:["dict[0]","dict(key)","dict[key]","dict.value"], a:"dict[key]"},
+  {q:"Which method returns all keys?", o:["keys()","values()","items()","get()"], a:"keys()"},
+  {q:"Which method returns all values?", o:["keys()","values()","items()","get()"], a:"values()"},
+  {q:"Which method returns key-value pairs?", o:["keys()","values()","items()","get()"], a:"items()"},
+  {q:"What does get() do?", o:["Delete key","Return value","Add key","Sort dict"], a:"Return value"},
+  {q:"How to add a new key?", o:["dict.add()","dict[key]=value","insert()","append()"], a:"dict[key]=value"},
+  {q:"How to delete a key?", o:["remove()","delete()","del dict[key]","popitem()"], a:"del dict[key]"},
+  {q:"Which method removes specific key?", o:["pop()","clear()","remove()","delete()"], a:"pop()"},
+  {q:"Which method clears dictionary?", o:["clear()","delete()","remove()","pop()"], a:"clear()"},
+  {q:"Are dictionary keys unique?", o:["Yes","No","Sometimes","None"], a:"Yes"},
+  {q:"Can values be duplicate?", o:["Yes","No","Only integers","None"], a:"Yes"},
+  {q:"What is output? len({'a':1,'b':2})", o:["1","2","Error","0"], a:"2"},
+  {q:"Which type is dictionary?", o:["Mutable","Immutable","Fixed","None"], a:"Mutable"}
+    ],
+    PythonDay_8: [
+  {q:"What is a function in Python?", o:["Block of reusable code","Loop","Variable","Class"], a:"Block of reusable code"},
+  {q:"Which keyword is used to define a function?", o:["func","define","def","function"], a:"def"},
+  {q:"What is the correct syntax to define a function?", o:["def myFunc()","function myFunc()","def myFunc():","create myFunc()"], a:"def myFunc():"},
+  {q:"How do you call a function?", o:["call myFunc()","run myFunc","myFunc()","execute myFunc"], a:"myFunc()"},
+  {q:"What is a parameter?", o:["Input to function","Output","Loop","Error"], a:"Input to function"},
+  {q:"What is a return value?", o:["Input","Output from function","Variable","Loop"], a:"Output from function"},
+  {q:"Which keyword is used to return a value?", o:["send","print","return","output"], a:"return"},
+  {q:"What happens if no return statement is used?", o:["Error","Returns None","Returns 0","Stops program"], a:"Returns None"},
+  {q:"What is a default parameter?", o:["Fixed value","Optional value","Loop","Error"], a:"Optional value"},
+  {q:"What is a keyword argument?", o:["Argument with name","Loop","Variable","None"], a:"Argument with name"},
+  {q:"What is *args used for?", o:["Multiple arguments","Single argument","Loop","Error"], a:"Multiple arguments"},
+  {q:"What is **kwargs used for?", o:["Dictionary arguments","List","Loop","Error"], a:"Dictionary arguments"},
+  {q:"What is recursion?", o:["Function calling itself","Loop","Variable","Class"], a:"Function calling itself"},
+  {q:"What is lambda function?", o:["Anonymous function","Loop","Class","Variable"], a:"Anonymous function"},
+  {q:"Can a function return multiple values?", o:["Yes","No","Sometimes","Error"], a:"Yes"}
+    ],
+
+    PythonDay_9: [
+  {q:"What is file handling in Python?", o:["Managing files like read/write","Creating variables","Loop execution","None"], a:"Managing files like read/write"},
+  {q:"Which function is used to open a file?", o:["open()","file()","read()","write()"], a:"open()"},
+  {q:"What mode is used to read a file?", o:["r","w","a","x"], a:"r"},
+  {q:"What mode is used to write a file?", o:["r","w","a","x"], a:"w"},
+  {q:"What does 'a' mode do?", o:["Read file","Append data","Delete file","None"], a:"Append data"},
+  {q:"Which method reads full file content?", o:["read()","write()","close()","append()"], a:"read()"},
+  {q:"Which method reads one line?", o:["readline()","read()","lines()","get()"], a:"readline()"},
+  {q:"Which method writes data into file?", o:["write()","read()","open()","input()"], a:"write()"},
+  {q:"What does close() do?", o:["Opens file","Closes file","Deletes file","None"], a:"Closes file"},
+  {q:"Which keyword is used for automatic file closing?", o:["with","auto","close","file"], a:"with"},
+  {q:"What is correct syntax for with statement?", o:["with open('file.txt','r') as f","open file as f","with file open","None"], a:"with open('file.txt','r') as f"},
+  {q:"What happens if file not found in 'r' mode?", o:["Error","New file created","Ignored","None"], a:"Error"},
+  {q:"Which mode creates file if not exists?", o:["w","r","read","None"], a:"w"},
+  {q:"Which method reads all lines as list?", o:["readlines()","read()","line()","getlines()"], a:"readlines()"},
+  {q:"What is file object?", o:["File handler","Variable","Loop","None"], a:"File handler"}
+    ],
+    PythonDay_10: [
+  {q:"What is OOP in Python?", o:["Object Oriented Programming","Only One Program","Open Operation Process","None"], a:"Object Oriented Programming"},
+  {q:"Which keyword is used to create a class?", o:["function","class","def","object"], a:"class"},
+  {q:"What is an object?", o:["Instance of class","Function","Loop","Variable"], a:"Instance of class"},
+  {q:"Which method is called automatically when object is created?", o:["start()","__init__()","create()","main()"], a:"__init__()"},
+  {q:"What does 'self' represent?", o:["Class itself","Object reference","Function name","None"], a:"Object reference"},
+  {q:"Which concept means hiding data?", o:["Inheritance","Encapsulation","Polymorphism","Abstraction"], a:"Encapsulation"},
+  {q:"Which concept allows code reuse?", o:["Encapsulation","Inheritance","Looping","None"], a:"Inheritance"},
+  {q:"Method overriding belongs to which concept?", o:["Encapsulation","Inheritance","Polymorphism","None"], a:"Polymorphism"},
+  {q:"Which function is used to check object type?", o:["type()","check()","isObject()","id()"], a:"type()"},
+  {q:"What is constructor?", o:["Special method","Loop","Variable","Operator"], a:"Special method"},
+  {q:"Which keyword is used for inheritance?", o:["extends","inherits","class","None"], a:"class"},
+  {q:"Which symbol is used to inherit class?", o:["()","{}","[]","<>"], a:"()"},
+  {q:"What is abstraction?", o:["Hiding implementation","Showing all data","Looping","None"], a:"Hiding implementation"},
+  {q:"Which method prints object info?", o:["__str__()","__init__()","__main__()","__call__()"], a:"__str__()"},
+  {q:"What is polymorphism?", o:["Many forms","Single form","No form","None"], a:"Many forms"}
+    ],
+
+    PythonDay_11: [
+  {q:"What is inheritance in Python?", o:["Reusing code from another class","Creating variables","Looping","None"], a:"Reusing code from another class"},
+  {q:"Which keyword is used to inherit a class?", o:["this","super","class","None (use class Child(Parent))"], a:"None (use class Child(Parent))"},
+  {q:"What is method overriding?", o:["Same method name in child class","Different method names","Deleting method","None"], a:"Same method name in child class"},
+  {q:"What is polymorphism?", o:["One name multiple forms","Single function","Loop","None"], a:"One name multiple forms"},
+  {q:"What does super() do?", o:["Calls parent class method","Deletes class","Creates object","None"], a:"Calls parent class method"},
+  {q:"What is encapsulation?", o:["Binding data and methods","Looping","Printing","None"], a:"Binding data and methods"},
+  {q:"Which symbol is used for private variables?", o:["#","__","//","**"], a:"__"},
+  {q:"What is abstraction?", o:["Hiding implementation details","Showing all data","Loop","None"], a:"Hiding implementation details"},
+  {q:"Which module is used for abstraction?", o:["math","abc","sys","os"], a:"abc"},
+  {q:"What is an abstract method?", o:["Method without body","Method with print","Loop","None"], a:"Method without body"},
+  {q:"What is multiple inheritance?", o:["One class inherits multiple classes","Multiple objects","Loop","None"], a:"One class inherits multiple classes"},
+  {q:"What is method overloading in Python?", o:["Same method different parameters","Not directly supported","Loop","None"], a:"Not directly supported"},
+  {q:"What is __init__ method?", o:["Constructor","Destructor","Loop","None"], a:"Constructor"},
+  {q:"What is __str__ used for?", o:["String representation","Loop","Math","None"], a:"String representation"},
+  {q:"What is class variable?", o:["Shared by all objects","Private","Local","None"], a:"Shared by all objects"}
+    ],
+
+    PythonDay_12: [
+  {q:"What is Exception Handling in Python?", o:["Handling errors","Loop control","File reading","None"], a:"Handling errors"},
+  {q:"Which keyword is used to handle exceptions?", o:["try","catch","handle","error"], a:"try"},
+  {q:"Which block is used to catch exception?", o:["catch","except","final","error"], a:"except"},
+  {q:"Which block always executes?", o:["try","except","finally","error"], a:"finally"},
+  {q:"What is the use of 'raise' keyword?", o:["Ignore error","Create error","Handle error","Stop loop"], a:"Create error"},
+  {q:"Which block is optional?", o:["try","except","finally","All"], a:"finally"},
+  {q:"What will happen if exception is not handled?", o:["Program runs","Error stops program","Ignore error","Loop starts"], a:"Error stops program"},
+  {q:"Which error occurs when dividing by zero?", o:["TypeError","ValueError","ZeroDivisionError","IndexError"], a:"ZeroDivisionError"},
+  {q:"Which error occurs when wrong type is used?", o:["TypeError","ValueError","NameError","IndexError"], a:"TypeError"},
+  {q:"Which error occurs when variable not defined?", o:["NameError","TypeError","ValueError","SyntaxError"], a:"NameError"},
+  {q:"try block is used for?", o:["Testing code","Handling error","Writing code","Looping"], a:"Testing code"},
+  {q:"except block runs when?", o:["No error","Error occurs","Always","Never"], a:"Error occurs"},
+  {q:"finally block runs when?", o:["Only error","Only success","Always","Never"], a:"Always"},
+  {q:"Multiple except blocks can be used?", o:["Yes","No","Sometimes","None"], a:"Yes"},
+  {q:"Which is correct syntax?", o:["try-except","try-catch","try-error","catch-except"], a:"try-except"}
+    ],
+
+    PythonDay_13: [
+  {q:"What is a module in Python?", o:["A single file containing Python code","A folder","A variable","A loop"], a:"A single file containing Python code"},
+  {q:"What is a package in Python?", o:["A single function","A collection of modules","A variable","A class"], a:"A collection of modules"},
+  {q:"Which keyword is used to import a module?", o:["include","import","require","use"], a:"import"},
+  {q:"Which function shows all functions of a module?", o:["show()","dir()","list()","help()"], a:"dir()"},
+  {q:"Which function gives documentation of a module?", o:["doc()","info()","help()","desc()"], a:"help()"},
+  {q:"How to import only one function from a module?", o:["import module.function","from module import function","include function","require function"], a:"from module import function"},
+  {q:"What is __name__ in Python?", o:["A variable","A special variable","A function","A class"], a:"A special variable"},
+  {q:"What does if __name__ == '__main__' do?", o:["Runs always","Runs only when file is main","Stops program","Imports module"], a:"Runs only when file is main"},
+  {q:"Which module is used for math operations?", o:["math","random","os","sys"], a:"math"},
+  {q:"Which module is used for random numbers?", o:["math","random","os","sys"], a:"random"},
+  {q:"Which module is used to interact with OS?", o:["sys","os","random","math"], a:"os"},
+  {q:"What is __init__.py file?", o:["Main file","Package initializer","Loop file","Error file"], a:"Package initializer"},
+  {q:"How to import all functions from module?", o:["import all","from module import *","include *","require *"], a:"from module import *"},
+  {q:"Which module handles system-specific parameters?", o:["os","sys","math","random"], a:"sys"},
+  {q:"What is pip in Python?", o:["Package installer","Loop","Function","Variable"], a:"Package installer"}
+    ],
+    PythonDay_14: [
+  {q:"What is a mini project in Python?", o:["Small application","Big software","Game only","None"], a:"Small application"},
+  {q:"Which concept is mainly used in mini projects?", o:["Only loops","Only variables","Combination of concepts","None"], a:"Combination of concepts"},
+  {q:"Which is commonly used for user input in projects?", o:["print()","input()","read()","open()"], a:"input()"},
+  {q:"Which data structure is useful for storing multiple records?", o:["int","list","float","bool"], a:"list"},
+  {q:"Which file is used to store data permanently?", o:[".py",".txt",".exe",".dll"], a:".txt"},
+  {q:"Which mode is used to write into a file?", o:["r","w","a","x"], a:"w"},
+  {q:"Which mode is used to read a file?", o:["r","w","a","x"], a:"r"},
+  {q:"What is the use of functions in a project?", o:["Repeat code","Organize code","Delete code","None"], a:"Organize code"},
+  {q:"Which keyword is used to define a function?", o:["func","define","def","function"], a:"def"},
+  {q:"Which loop is mostly used for menus?", o:["for","while","do-while","None"], a:"while"},
+  {q:"What is used to stop a loop?", o:["stop","end","break","exit"], a:"break"},
+  {q:"Which concept is used to handle wrong input?", o:["loop","condition","exception","None"], a:"condition"},
+  {q:"Which operator is used for comparison?", o:["=","==","!=","Both == and !="], a:"Both == and !="},
+  {q:"Which module can be used for random numbers?", o:["math","random","os","sys"], a:"random"},
+  {q:"What is the main goal of a mini project?", o:["Practice","Time pass","Only theory","None"], a:"Practice"}
+]
+};
+
+let currentQ = 0;
+let selectedQuestions = [];
+let score = 0;
+let total = 0;
+
+document.getElementById("category").addEventListener("change", function(){
+    let val = this.value;
+    selectedQuestions = questions[val];
+    currentQ = 0;
+    score = 0;
+    total = selectedQuestions.length;
+
+    loadQuestion();
+});
+
+function loadQuestion(){
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("nextBtn").classList.add("d-none");
+
+    let q = selectedQuestions[currentQ];
+    document.getElementById("question").innerText = `Q${currentQ+1}: ${q.q}`;
+
+    let optionsHTML = "";
+    q.o.forEach(opt => {
+        optionsHTML += `<button class="btn btn-outline-dark w-100 mb-2" onclick="checkAnswer('${opt}')">${opt}</button>`;
+    });
+
+    document.getElementById("options").innerHTML = optionsHTML;
+}
+
+function checkAnswer(ans){
+    let correct = selectedQuestions[currentQ].a;
+
+    if(ans === correct){
+        document.getElementById("result").innerHTML = "✅ Correct";
+        score++;
+    } else {
+        document.getElementById("result").innerHTML = "❌ Wrong (Correct: " + correct + ")";
+    }
+
+    document.getElementById("nextBtn").classList.remove("d-none");
+}
+
+document.getElementById("nextBtn").addEventListener("click", function(){
+    currentQ++;
+
+    if(currentQ < total){
+        loadQuestion();
+    } else {
+        showResult();
+    }
+});
+
+function showResult(){
+    document.getElementById("question").innerText = "Quiz Completed 🎉";
+    document.getElementById("options").innerHTML = "";
+
+    let wrong = total - score;
+
+    document.getElementById("result").innerHTML =
+        `Score: ${score}/${total} <br>
+         Right: ${score} <br>
+         Wrong: ${wrong}`;
+}
+
+</script>
+
+</body>
+</html>
